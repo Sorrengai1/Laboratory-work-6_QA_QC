@@ -1,8 +1,5 @@
 const { test, expect } = require('@playwright/test');
 
-// Пропускаємо всі скріншот-тести в CI, оскільки еталони для Linux не створені
-test.skip(!!process.env.CI, 'Скріншот-тести пропущені в CI');
-
 // Тест 1: Порівняння скріншота всієї сторінки
 test('Перевірка змін сторінки за скріншотом', async ({ page }) => {
   await page.goto('http://localhost:3000');
