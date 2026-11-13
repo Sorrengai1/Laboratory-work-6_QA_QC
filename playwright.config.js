@@ -7,7 +7,8 @@ module.exports = defineConfig({
   use: {
     baseURL: 'http://localhost:3000',
     trace: 'on-first-retry',
-    headless: true,
+    headless: !!process.env.CI, // <-- Автоматично: true для CI, false для локальної роботи
+    ignoreSnapshots: !!process.env.CI, // <-- Пропускає перевірку скріншотів у CI
   },
   projects: [
     {
