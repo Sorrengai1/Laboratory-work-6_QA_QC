@@ -2,6 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 // Пропускаємо тести Розетки в CI, оскільки сайт блокує хмарні IP
 test.skip(!!process.env.CI, 'Розетка блокує запити з GitHub Actions');
+
 test('Перевірка завантаження головної сторінки Розетки', async ({ page }) => {
   const response = await page.goto('https://rozetka.com.ua/');
   expect(response.status()).toBe(200);
